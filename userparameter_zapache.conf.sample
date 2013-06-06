@@ -1,0 +1,6 @@
+#
+# This is a sample zabbix_agentd config file.
+# Put it to /etc/zabbix_agentd.conf.d or otherwise integrate into agent config.
+# Edit to your needs.
+#
+UserParameter=zapache[*],/var/lib/zabbixsrv/externalscripts/zapache \$1
