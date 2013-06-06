@@ -16,6 +16,7 @@
 zapachever="1.5"
 rval=0
 value=""
+cache_seconds="60"
 [ "$TMPDIR" ] || TMPDIR=/tmp
  
 function usage()
@@ -77,7 +78,7 @@ esac
 cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
 cache="$TMPDIR/$cache_prefix.cache"
 cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
-touch -d "@$((`date +%s` - 60))" "$cache_timestamp_check"
+touch -d "@$((`date +%s` - $cache_seconds))" "$cache_timestamp_check"
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	env - wget --no-check-certificate --quiet -O - "$STATUS_URL" > "$cache"
 fi
