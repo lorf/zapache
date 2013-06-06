@@ -104,37 +104,37 @@ case "$CASE_VALUE" in
 	awk '/^IdleWorkers:/ {print $2}' < "$cache"
 	rval=$?;;
 'WaitingForConnection')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "_" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "_" }; { print NF-1 }'
 	rval=$?;;
 'StartingUp')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "S" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "S" }; { print NF-1 }'
 	rval=$?;;
 'ReadingRequest')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "R" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "R" }; { print NF-1 }'
 	rval=$?;;
 'SendingReply')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "W" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "W" }; { print NF-1 }'
 	rval=$?;;
 'KeepAlive')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "K" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "K" }; { print NF-1 }'
 	rval=$?;;
 'DNSLookup')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "D" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "D" }; { print NF-1 }'
 	rval=$?;;
 'ClosingConnection')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "C" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "C" }; { print NF-1 }'
 	rval=$?;;
 'Logging')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "L" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "L" }; { print NF-1 }'
 	rval=$?;;
 'GracefullyFinishing')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "G" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "G" }; { print NF-1 }'
 	rval=$?;;
 'IdleCleanupOfWorker')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "I" }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "I" }; { print NF-1 }'
 	rval=$?;;
 'OpenSlotWithNoCurrentProcess')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | 'BEGIN { FS = "." }; { print NF-1 }'
+	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "." }; { print NF-1 }'
 	rval=$?;;
 'version')
 	echo "$zapachever"
