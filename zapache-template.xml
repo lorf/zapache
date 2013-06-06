@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zabbix_export version="1.0" date="26.05.11" time="08.59">
+<zabbix_export version="1.0" date="06.06.13" time="07.00">
   <hosts>
-    <host name="Template_Apache_Stats">
+    <host name="Template App Apache Web Server zapache">
       <proxy_hostid>0</proxy_hostid>
       <useip>1</useip>
       <dns></dns>
@@ -18,10 +18,21 @@
       <groups>
         <group>Templates</group>
       </groups>
-      <triggers/>
+      <triggers>
+        <trigger>
+          <expression>{Template App Apache Web Server zapache:zapache[ping].last(0)}=0</expression>
+          <name>Apache is down</name>
+          <url/>
+          <status>0</status>
+          <priority>0</priority>
+          <description/>
+          <type>0</type>
+          <dependencies/>
+        </trigger>
+      </triggers>
       <items>
-        <item type="0" key="apache[BytesPerReq]" value_type="0">
-          <description>Apache/BytesPerReq.</description>
+        <item type="0" key="zapache[BytesPerReq]" value_type="0">
+          <description>Apache/BytesPerReq</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -51,11 +62,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[BytesPerSec]" value_type="0">
-          <description>Apache/BytesPerSec.</description>
+        <item type="0" key="zapache[BytesPerSec]" value_type="0">
+          <description>Apache/BytesPerSec</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -85,11 +96,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[ClosingConnection]" value_type="0">
-          <description>Apache/ClosingConnection.</description>
+        <item type="0" key="zapache[ClosingConnection]" value_type="3">
+          <description>Apache/ClosingConnection</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -119,11 +130,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[DNSLookup]" value_type="0">
-          <description>Apache/DNSLookup.</description>
+        <item type="0" key="zapache[CPULoad]" value_type="0">
+          <description>Apache/CPULoad</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -153,11 +164,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[GracefullyFinishing]" value_type="3">
-          <description>Apache/GracefullyFinishing.</description>
+        <item type="0" key="zapache[DNSLookup]" value_type="3">
+          <description>Apache/DNSLookup</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -187,11 +198,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[IdleCleanupOfWorker]" value_type="0">
-          <description>Apache/IdleCleanupOfWorker.</description>
+        <item type="0" key="zapache[GracefullyFinishing]" value_type="3">
+          <description>Apache/GracefullyFinishing</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -221,11 +232,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[IdleWorkers]" value_type="3">
-          <description>Apache/IdleWorkers.</description>
+        <item type="0" key="zapache[IdleCleanupOfWorker]" value_type="3">
+          <description>Apache/IdleCleanupOfWorker</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -255,11 +266,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[KeepAlive]" value_type="0">
-          <description>Apache/KeepAlive.</description>
+        <item type="0" key="zapache[IdleWorkers]" value_type="3">
+          <description>Apache/IdleWorkers</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -289,11 +300,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[Logging]" value_type="0">
-          <description>Apache/Logging.</description>
+        <item type="0" key="zapache[BusyWorkers]" value_type="3">
+          <description>Apache/BusyWorkers</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -323,11 +334,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[OpenSlotWithNoCurrentProcess]" value_type="0">
-          <description>Apache/OpenSlotWithNoCurrentProcess.</description>
+        <item type="0" key="zapache[KeepAlive]" value_type="3">
+          <description>Apache/KeepAlive</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -357,11 +368,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[ReadingRequest]" value_type="0">
-          <description>Apache/ReadingRequest.</description>
+        <item type="0" key="zapache[Logging]" value_type="3">
+          <description>Apache/Logging</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -391,11 +402,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[ReqPerSec]" value_type="0">
-          <description>Apache/ReqPerSec.</description>
+        <item type="0" key="zapache[OpenSlotWithNoCurrentProcess]" value_type="3">
+          <description>Apache/OpenSlotWithNoCurrentProcess</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -425,11 +436,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[SendingReply]" value_type="0">
-          <description>Apache/SendingReply.</description>
+        <item type="0" key="zapache[ReadingRequest]" value_type="3">
+          <description>Apache/ReadingRequest</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -459,11 +470,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[StartingUp]" value_type="0">
-          <description>Apache/StartingUp.</description>
+        <item type="0" key="zapache[ReqPerSec]" value_type="0">
+          <description>Apache/ReqPerSec</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -493,11 +504,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[TotalAccesses]" value_type="3">
-          <description>Apache/TotalAccesses.</description>
+        <item type="0" key="zapache[SendingReply]" value_type="3">
+          <description>Apache/SendingReply</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -527,11 +538,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[TotalKBytes]" value_type="0">
-          <description>Apache/TotalKBytes.</description>
+        <item type="0" key="zapache[StartingUp]" value_type="3">
+          <description>Apache/StartingUp</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -561,11 +572,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[Uptime]" value_type="0">
-          <description>Apache/Uptime.</description>
+        <item type="0" key="zapache[TotalAccesses]" value_type="3">
+          <description>Apache/TotalAccesses</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -595,11 +606,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[version]" value_type="0">
-          <description>Apache/version.</description>
+        <item type="0" key="zapache[TotalKBytes]" value_type="0">
+          <description>Apache/TotalKBytes</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -629,11 +640,11 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
           </applications>
         </item>
-        <item type="0" key="apache[WaitingForConnection]" value_type="0">
-          <description>Apache/WaitingForConnection.</description>
+        <item type="0" key="zapache[Uptime]" value_type="3">
+          <description>Apache/Uptime</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
@@ -663,12 +674,233 @@
           <snmpv3_privpassphrase></snmpv3_privpassphrase>
           <valuemapid>0</valuemapid>
           <applications>
-            <application>APACHE</application>
+            <application>Apache Web Server</application>
+          </applications>
+        </item>
+        <item type="0" key="zapache[version]" value_type="4">
+          <description>zapache/version</description>
+          <ipmi_sensor></ipmi_sensor>
+          <delay>60</delay>
+          <history>7</history>
+          <trends>365</trends>
+          <status>0</status>
+          <data_type>0</data_type>
+          <units></units>
+          <multiplier>0</multiplier>
+          <delta>0</delta>
+          <formula>0</formula>
+          <lastlogsize>0</lastlogsize>
+          <logtimefmt></logtimefmt>
+          <delay_flex></delay_flex>
+          <authtype>0</authtype>
+          <username></username>
+          <password></password>
+          <publickey></publickey>
+          <privatekey></privatekey>
+          <params></params>
+          <trapper_hosts></trapper_hosts>
+          <snmp_community></snmp_community>
+          <snmp_oid></snmp_oid>
+          <snmp_port>161</snmp_port>
+          <snmpv3_securityname></snmpv3_securityname>
+          <snmpv3_securitylevel>0</snmpv3_securitylevel>
+          <snmpv3_authpassphrase></snmpv3_authpassphrase>
+          <snmpv3_privpassphrase></snmpv3_privpassphrase>
+          <valuemapid>0</valuemapid>
+          <applications>
+            <application>Apache Web Server</application>
+          </applications>
+        </item>
+        <item type="0" key="zapache[ping]" value_type="3">
+          <description>Apache/status</description>
+          <ipmi_sensor></ipmi_sensor>
+          <delay>60</delay>
+          <history>7</history>
+          <trends>365</trends>
+          <status>0</status>
+          <data_type>0</data_type>
+          <units></units>
+          <multiplier>0</multiplier>
+          <delta>0</delta>
+          <formula>0</formula>
+          <lastlogsize>0</lastlogsize>
+          <logtimefmt></logtimefmt>
+          <delay_flex></delay_flex>
+          <authtype>0</authtype>
+          <username></username>
+          <password></password>
+          <publickey></publickey>
+          <privatekey></privatekey>
+          <params></params>
+          <trapper_hosts></trapper_hosts>
+          <snmp_community></snmp_community>
+          <snmp_oid></snmp_oid>
+          <snmp_port>161</snmp_port>
+          <snmpv3_securityname></snmpv3_securityname>
+          <snmpv3_securitylevel>0</snmpv3_securitylevel>
+          <snmpv3_authpassphrase></snmpv3_authpassphrase>
+          <snmpv3_privpassphrase></snmpv3_privpassphrase>
+          <valuemapid>0</valuemapid>
+          <applications>
+            <application>Apache Web Server</application>
+          </applications>
+        </item>
+        <item type="0" key="zapache[WaitingForConnection]" value_type="3">
+          <description>Apache/WaitingForConnection</description>
+          <ipmi_sensor></ipmi_sensor>
+          <delay>60</delay>
+          <history>7</history>
+          <trends>365</trends>
+          <status>0</status>
+          <data_type>0</data_type>
+          <units></units>
+          <multiplier>0</multiplier>
+          <delta>0</delta>
+          <formula>0</formula>
+          <lastlogsize>0</lastlogsize>
+          <logtimefmt></logtimefmt>
+          <delay_flex></delay_flex>
+          <authtype>0</authtype>
+          <username></username>
+          <password></password>
+          <publickey></publickey>
+          <privatekey></privatekey>
+          <params></params>
+          <trapper_hosts></trapper_hosts>
+          <snmp_community></snmp_community>
+          <snmp_oid></snmp_oid>
+          <snmp_port>161</snmp_port>
+          <snmpv3_securityname></snmpv3_securityname>
+          <snmpv3_securitylevel>0</snmpv3_securitylevel>
+          <snmpv3_authpassphrase></snmpv3_authpassphrase>
+          <snmpv3_privpassphrase></snmpv3_privpassphrase>
+          <valuemapid>0</valuemapid>
+          <applications>
+            <application>Apache Web Server</application>
           </applications>
         </item>
       </items>
       <templates/>
-      <graphs/>
+			<graphs>
+				 <graph name="Apache Thread Scoreboard" width="900" height="200">
+						<ymin_type>0</ymin_type>
+						<ymax_type>0</ymax_type>
+						<ymin_item_key></ymin_item_key>
+						<ymax_item_key></ymax_item_key>
+						<show_work_period>0</show_work_period>
+						<show_triggers>0</show_triggers>
+						<graphtype>1</graphtype>
+						<yaxismin>0.0000</yaxismin>
+						<yaxismax>100.0000</yaxismax>
+						<show_legend>0</show_legend>
+						<show_3d>0</show_3d>
+						<percent_left>0.0000</percent_left>
+						<percent_right>0.0000</percent_right>
+						<graph_elements>
+							<graph_element item="Template App Apache Web Server zapache:zapache[SendingReply]">
+								 <drawtype>1</drawtype>
+								 <sortorder>1</sortorder>
+								 <color>00EE00</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[ReadingRequest]">
+								 <drawtype>1</drawtype>
+								 <sortorder>6</sortorder>
+								 <color>FF9999</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[StartingUp]">
+								 <drawtype>1</drawtype>
+								 <sortorder>2</sortorder>
+								 <color>0000EE</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[WaitingForConnection]">
+								 <drawtype>1</drawtype>
+								 <sortorder>0</sortorder>
+								 <color>009900</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[KeepAlive]">
+								 <drawtype>1</drawtype>
+								 <sortorder>7</sortorder>
+								 <color>00DDDD</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[DNSLookup]">
+								 <drawtype>1</drawtype>
+								 <sortorder>3</sortorder>
+								 <color>888888</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[Logging]">
+								 <drawtype>1</drawtype>
+								 <sortorder>9</sortorder>
+								 <color>CC3232</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[GracefullyFinishing]">
+								 <drawtype>1</drawtype>
+								 <sortorder>4</sortorder>
+								 <color>BB00BB</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[IdleCleanupOfWorker]">
+								 <drawtype>1</drawtype>
+								 <sortorder>5</sortorder>
+								 <color>000000</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<graph_element item="Template App Apache Web Server zapache:zapache[ClosingConnection]">
+								 <drawtype>1</drawtype>
+								 <sortorder>8</sortorder>
+								 <color>777700</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							<!--
+							<graph_element item="Template App Apache Web Server zapache:zapache[OpenSlotWithNoCurrentProcess]">
+								 <drawtype>1</drawtype>
+								 <sortorder>10</sortorder>
+								 <color>C6DEFF</color>
+								 <yaxisside>0</yaxisside>
+								 <calc_fnc>2</calc_fnc>
+								 <type>0</type>
+								 <periods_cnt>5</periods_cnt>
+							</graph_element>
+							-->
+						</graph_elements>
+				 </graph>
+			</graphs>
       <macros/>
     </host>
   </hosts>
