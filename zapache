@@ -15,6 +15,7 @@
  
 zapachever="1.5"
 rval=0
+value=""
 [ "$TMPDIR" ] || TMPDIR=/tmp
  
 function usage()
@@ -51,11 +52,15 @@ function usage()
 
 if [[ $# ==  1 ]];then
 	#Agent Mode
-	APACHE_HOST="localhost"
+	STATUS_URL="http://localhost/server-status?auto"
 	CASE_VALUE="$1"
 elif [[ $# == 2 ]];then
 	#External Script Mode
-	APACHE_HOST="$1"
+	STATUS_URL="$1"
+	case "$STATUS_URL" in
+		http://*|https://*) ;;
+		*) STATUS_URL="http://$STATUS_URL/server-status?auto";;
+	esac
 	CASE_VALUE="$2"
 else
 	#No Parameter
@@ -63,12 +68,29 @@ else
 	exit 0
 fi
 
-cache="$TMPDIR/zapache-$APACHE_HOST.cache"
-cache_timestamp_check="$TMPDIR/zapache-$APACHE_HOST.ts"
+case "$CASE_VALUE" in
+'version')
+	echo "$zapachever"
+	exit 0;;
+esac
+
+cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
+cache="$TMPDIR/$cache_prefix.cache"
+cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
 touch -d "@$((`date +%s` - 60))" "$cache_timestamp_check"
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
-	env - wget --no-check-certificate --quiet -O - "http://$APACHE_HOST/server-status?auto" > "$cache"
+	env - wget --no-check-certificate --quiet -O - "$STATUS_URL" > "$cache"
 fi
+
+case "$CASE_VALUE" in
+'ping')
+	if [ ! -s "$cache" -o "$cache" -ot "$cache_timestamp_check" ]; then
+		echo "0"
+	else
+		echo "1"
+	fi
+	exit 0;;
+esac
 
 if ! [ -s "$cache" ]; then
 	echo "ZBX_NOTSUPPORTED"
@@ -77,84 +99,79 @@ fi
  
 case "$CASE_VALUE" in
 'TotalAccesses')
-	awk '/^Total Accesses:/ {print $3}' < "$cache"
+	value="`awk '/^Total Accesses:/ {print $3}' < \"$cache\"`"
 	rval=$?;;
 'TotalKBytes')
-	awk '/^Total kBytes:/ {print $3}' < "$cache"
+	value="`awk '/^Total kBytes:/ {print $3}' < \"$cache\"`"
 	rval=$?;;
 'CPULoad')
-	awk '/^CPULoad:/ {print $2}' < "$cache"
+	value="`awk '/^CPULoad:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'Uptime')
-	awk '/^Uptime:/ {print $2}' < "$cache"
+	value="`awk '/^Uptime:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'ReqPerSec')
-	awk '/^ReqPerSec:/ {print $2}' < "$cache"
+	value="`awk '/^ReqPerSec:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'BytesPerSec')
-	awk '/^BytesPerSec:/ {print $2}' < "$cache"
+	value="`awk '/^BytesPerSec:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'BytesPerReq')
-	awk '/^BytesPerReq:/ {print $2}' < "$cache"
+	value="`awk '/^BytesPerReq:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'BusyWorkers')
-	awk '/^BusyWorkers:/ {print $2}' < "$cache"
+	value="`awk '/^BusyWorkers:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'IdleWorkers')
-	awk '/^IdleWorkers:/ {print $2}' < "$cache"
+	value="`awk '/^IdleWorkers:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'WaitingForConnection')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "_" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "_" }; { print NF-1 }'`"
 	rval=$?;;
 'StartingUp')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "S" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "S" }; { print NF-1 }'`"
 	rval=$?;;
 'ReadingRequest')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "R" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "R" }; { print NF-1 }'`"
 	rval=$?;;
 'SendingReply')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "W" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "W" }; { print NF-1 }'`"
 	rval=$?;;
 'KeepAlive')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "K" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "K" }; { print NF-1 }'`"
 	rval=$?;;
 'DNSLookup')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "D" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "D" }; { print NF-1 }'`"
 	rval=$?;;
 'ClosingConnection')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "C" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "C" }; { print NF-1 }'`"
 	rval=$?;;
 'Logging')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "L" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "L" }; { print NF-1 }'`"
 	rval=$?;;
 'GracefullyFinishing')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "G" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "G" }; { print NF-1 }'`"
 	rval=$?;;
 'IdleCleanupOfWorker')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "I" }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "I" }; { print NF-1 }'`"
 	rval=$?;;
 'OpenSlotWithNoCurrentProcess')
-	awk '/^Scoreboard:/ {print $2}' < "$cache" | awk 'BEGIN { FS = "." }; { print NF-1 }'
+	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "." }; { print NF-1 }'`"
 	rval=$?;;
-'version')
-	echo "$zapachever"
-	exit $rval;;
-'ping')
-	if [ ! -s "$cache" -o "$cache" -ot "$cache_timestamp_check" ]; then
-		echo "0"
-	else
-		echo "1"
-	fi
-	exit 0;;
 *)
 	usage
-	exit $rval;;
+	exit 1;;
 esac
+
+if [ "$rval" -eq 0 -a -z "$value" ]; then
+	rval=1
+fi
  
 if [ "$rval" -ne 0 ]; then
 	echo "ZBX_NOTSUPPORTED"
 fi
  
+echo "$value"
 exit $rval
  
 #
