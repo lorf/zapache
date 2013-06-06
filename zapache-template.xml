@@ -39,7 +39,7 @@
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-          <units>bytes</units>
+          <units>B</units>
           <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>0</formula>
@@ -73,7 +73,7 @@
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-		  <units>bytes/s</units>
+          <units>Bps</units>
           <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>0</formula>
@@ -610,17 +610,17 @@
           </applications>
         </item>
         <item type="0" key="zapache[TotalKBytes]" value_type="0">
-          <description>Apache/TotalKBytes</description>
+          <description>Apache/TotalBytes</description>
           <ipmi_sensor></ipmi_sensor>
           <delay>60</delay>
           <history>7</history>
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-          <units>KBytes</units>
-          <multiplier>0</multiplier>
+          <units>B</units>
+          <multiplier>1</multiplier>
           <delta>0</delta>
-          <formula>0</formula>
+          <formula>1024</formula>
           <lastlogsize>0</lastlogsize>
           <logtimefmt></logtimefmt>
           <delay_flex></delay_flex>
@@ -651,7 +651,7 @@
           <trends>365</trends>
           <status>0</status>
           <data_type>0</data_type>
-          <units></units>
+          <units>uptime</units>
           <multiplier>0</multiplier>
           <delta>0</delta>
           <formula>0</formula>
@@ -781,126 +781,126 @@
         </item>
       </items>
       <templates/>
-			<graphs>
-				 <graph name="Apache Thread Scoreboard" width="900" height="200">
-						<ymin_type>0</ymin_type>
-						<ymax_type>0</ymax_type>
-						<ymin_item_key></ymin_item_key>
-						<ymax_item_key></ymax_item_key>
-						<show_work_period>0</show_work_period>
-						<show_triggers>0</show_triggers>
-						<graphtype>1</graphtype>
-						<yaxismin>0.0000</yaxismin>
-						<yaxismax>100.0000</yaxismax>
-						<show_legend>0</show_legend>
-						<show_3d>0</show_3d>
-						<percent_left>0.0000</percent_left>
-						<percent_right>0.0000</percent_right>
-						<graph_elements>
-							<graph_element item="Template App Apache Web Server zapache:zapache[SendingReply]">
-								 <drawtype>1</drawtype>
-								 <sortorder>1</sortorder>
-								 <color>00EE00</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[ReadingRequest]">
-								 <drawtype>1</drawtype>
-								 <sortorder>6</sortorder>
-								 <color>FF9999</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[StartingUp]">
-								 <drawtype>1</drawtype>
-								 <sortorder>2</sortorder>
-								 <color>0000EE</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[WaitingForConnection]">
-								 <drawtype>1</drawtype>
-								 <sortorder>0</sortorder>
-								 <color>009900</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[KeepAlive]">
-								 <drawtype>1</drawtype>
-								 <sortorder>7</sortorder>
-								 <color>00DDDD</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[DNSLookup]">
-								 <drawtype>1</drawtype>
-								 <sortorder>3</sortorder>
-								 <color>888888</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[Logging]">
-								 <drawtype>1</drawtype>
-								 <sortorder>9</sortorder>
-								 <color>CC3232</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[GracefullyFinishing]">
-								 <drawtype>1</drawtype>
-								 <sortorder>4</sortorder>
-								 <color>BB00BB</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[IdleCleanupOfWorker]">
-								 <drawtype>1</drawtype>
-								 <sortorder>5</sortorder>
-								 <color>000000</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<graph_element item="Template App Apache Web Server zapache:zapache[ClosingConnection]">
-								 <drawtype>1</drawtype>
-								 <sortorder>8</sortorder>
-								 <color>777700</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							<!--
-							<graph_element item="Template App Apache Web Server zapache:zapache[OpenSlotWithNoCurrentProcess]">
-								 <drawtype>1</drawtype>
-								 <sortorder>10</sortorder>
-								 <color>C6DEFF</color>
-								 <yaxisside>0</yaxisside>
-								 <calc_fnc>2</calc_fnc>
-								 <type>0</type>
-								 <periods_cnt>5</periods_cnt>
-							</graph_element>
-							-->
-						</graph_elements>
-				 </graph>
-			</graphs>
+            <graphs>
+                 <graph name="Apache Thread Scoreboard" width="900" height="200">
+                        <ymin_type>0</ymin_type>
+                        <ymax_type>0</ymax_type>
+                        <ymin_item_key></ymin_item_key>
+                        <ymax_item_key></ymax_item_key>
+                        <show_work_period>0</show_work_period>
+                        <show_triggers>0</show_triggers>
+                        <graphtype>1</graphtype>
+                        <yaxismin>0.0000</yaxismin>
+                        <yaxismax>100.0000</yaxismax>
+                        <show_legend>0</show_legend>
+                        <show_3d>0</show_3d>
+                        <percent_left>0.0000</percent_left>
+                        <percent_right>0.0000</percent_right>
+                        <graph_elements>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[SendingReply]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>1</sortorder>
+                                 <color>00EE00</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[ReadingRequest]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>6</sortorder>
+                                 <color>FF9999</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[StartingUp]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>2</sortorder>
+                                 <color>0000EE</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[WaitingForConnection]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>0</sortorder>
+                                 <color>009900</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[KeepAlive]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>7</sortorder>
+                                 <color>00DDDD</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[DNSLookup]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>3</sortorder>
+                                 <color>888888</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[Logging]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>9</sortorder>
+                                 <color>CC3232</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[GracefullyFinishing]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>4</sortorder>
+                                 <color>BB00BB</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[IdleCleanupOfWorker]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>5</sortorder>
+                                 <color>000000</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <graph_element item="Template App Apache Web Server zapache:zapache[ClosingConnection]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>8</sortorder>
+                                 <color>777700</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            <!--
+                            <graph_element item="Template App Apache Web Server zapache:zapache[OpenSlotWithNoCurrentProcess]">
+                                 <drawtype>1</drawtype>
+                                 <sortorder>10</sortorder>
+                                 <color>C6DEFF</color>
+                                 <yaxisside>0</yaxisside>
+                                 <calc_fnc>2</calc_fnc>
+                                 <type>0</type>
+                                 <periods_cnt>5</periods_cnt>
+                            </graph_element>
+                            -->
+                        </graph_elements>
+                 </graph>
+            </graphs>
       <macros/>
     </host>
   </hosts>
