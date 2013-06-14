@@ -78,9 +78,24 @@ esac
 cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
 cache="$TMPDIR/$cache_prefix.cache"
 cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
+# This assumes touch from coreutils
 touch -d "@$((`date +%s` - $cache_seconds))" "$cache_timestamp_check"
+
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
-	env - wget --no-check-certificate --quiet -O - "$STATUS_URL" > "$cache"
+	curl="`which curl`"
+	if [ "$curl" ]; then
+		fetch_url_cmd="$curl --insecure --silent --location"
+	else
+		wget="`which wget`"
+		if [ "$wget" ]; then
+			fetch_url_cmd="$wget --no-check-certificate --quiet -O -"
+		else
+			echo "ZBX_NOTSUPPORTED"
+			exit 1
+		fi
+	fi
+
+	$fetch_url_cmd "$STATUS_URL" > "$cache"
 fi
 
 case "$CASE_VALUE" in
