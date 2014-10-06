@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export version="1.0" date="06.06.13" time="07.00">
   <hosts>
-    <host name="Template App Apache Web Server zapache">
+    <host name="Template App Apache Web Server zapache Agent Active">
       <proxy_hostid>0</proxy_hostid>
       <useip>1</useip>
       <dns></dns>
@@ -20,7 +20,7 @@
       </groups>
       <triggers>
         <trigger>
-          <expression>{Template App Apache Web Server zapache:zapache[ping].last(0)}=0</expression>
+          <expression>{Template App Apache Web Server zapache Agent Active:zapache[ping].last(0)}=0</expression>
           <name>Apache is down</name>
           <url/>
           <status>0</status>
@@ -797,7 +797,7 @@
                         <percent_left>0.0000</percent_left>
                         <percent_right>0.0000</percent_right>
                         <graph_elements>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[SendingReply]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[SendingReply]">
                                  <drawtype>1</drawtype>
                                  <sortorder>1</sortorder>
                                  <color>00EE00</color>
@@ -806,7 +806,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[ReadingRequest]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[ReadingRequest]">
                                  <drawtype>1</drawtype>
                                  <sortorder>6</sortorder>
                                  <color>FF9999</color>
@@ -815,7 +815,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[StartingUp]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[StartingUp]">
                                  <drawtype>1</drawtype>
                                  <sortorder>2</sortorder>
                                  <color>0000EE</color>
@@ -824,7 +824,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[WaitingForConnection]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[WaitingForConnection]">
                                  <drawtype>1</drawtype>
                                  <sortorder>0</sortorder>
                                  <color>009900</color>
@@ -833,7 +833,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[KeepAlive]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[KeepAlive]">
                                  <drawtype>1</drawtype>
                                  <sortorder>7</sortorder>
                                  <color>00DDDD</color>
@@ -842,7 +842,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[DNSLookup]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[DNSLookup]">
                                  <drawtype>1</drawtype>
                                  <sortorder>3</sortorder>
                                  <color>888888</color>
@@ -851,7 +851,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[Logging]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[Logging]">
                                  <drawtype>1</drawtype>
                                  <sortorder>9</sortorder>
                                  <color>CC3232</color>
@@ -860,7 +860,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[GracefullyFinishing]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[GracefullyFinishing]">
                                  <drawtype>1</drawtype>
                                  <sortorder>4</sortorder>
                                  <color>BB00BB</color>
@@ -869,7 +869,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[IdleCleanupOfWorker]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[IdleCleanupOfWorker]">
                                  <drawtype>1</drawtype>
                                  <sortorder>5</sortorder>
                                  <color>000000</color>
@@ -878,7 +878,7 @@
                                  <type>0</type>
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
-                            <graph_element item="Template App Apache Web Server zapache:zapache[ClosingConnection]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[ClosingConnection]">
                                  <drawtype>1</drawtype>
                                  <sortorder>8</sortorder>
                                  <color>777700</color>
@@ -888,7 +888,7 @@
                                  <periods_cnt>5</periods_cnt>
                             </graph_element>
                             <!--
-                            <graph_element item="Template App Apache Web Server zapache:zapache[OpenSlotWithNoCurrentProcess]">
+                            <graph_element item="Template App Apache Web Server zapache Agent Active:zapache[OpenSlotWithNoCurrentProcess]">
                                  <drawtype>1</drawtype>
                                  <sortorder>10</sortorder>
                                  <color>C6DEFF</color>
