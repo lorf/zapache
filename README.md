@@ -37,4 +37,4 @@ The script version 1.4 and template are taken from https://www.zabbix.com/wiki/t
 
 #### On Zabbix server
 
-Now import zapache-template.xml on Zabbix server and bind "Template App Apache Web Server zapache" template to Apache host.
+Now import zapache-template.xml and zapache-template-active.xml on Zabbix server and bind "Template App Apache Web Server zapache" OR "Template App Apache Web Server zapache Agent Active" template to Apache host.
