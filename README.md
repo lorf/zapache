@@ -14,6 +14,7 @@ The script version 1.4 and template are taken from https://www.zabbix.com/wiki/t
 * Better error handling
 * Added sample conf files for Apache and Zabbix agent
 * Added measurement units to a template
+* Requires Zabbix version 2.0 and later.
 
 ## Installation
 
