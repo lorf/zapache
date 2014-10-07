@@ -107,6 +107,48 @@
                     <valuemap/>
                 </item>
                 <item>
+                    <name>Apache/BytesPerReq Realtime</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>zapache[BytesPerReqRealtime]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params>last(&quot;zapache[TotalKBytes]&quot;)/(last(&quot;zapache[TotalAccesses]&quot;)+count(&quot;zapache[TotalAccesses]&quot;,#1,0)*1000000000)</params>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Apache Web Server</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>Apache/BytesPerSec</name>
                     <type>0</type>
                     <snmp_community/>
@@ -129,6 +171,48 @@
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>0</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Apache Web Server</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Apache/BytesPerSec Realtime</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>1</multiplier>
+                    <snmp_oid/>
+                    <key>zapache[TotalKBytes]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>Bps</units>
+                    <delta>1</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -581,7 +665,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>qps</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -590,7 +674,49 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <formula>0</formula>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Apache Web Server</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Apache/ReqPerSec Realtime</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>zapache[TotalAccesses]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>qps</units>
+                    <delta>1</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -717,90 +843,6 @@
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
                     <formula>0</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Apache Web Server</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Apache/TotalAccesses</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>zapache[TotalAccesses]</key>
-                    <delay>60</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>0</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Apache Web Server</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Apache/TotalBytes</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>1</multiplier>
-                    <snmp_oid/>
-                    <key>zapache[TotalKBytes]</key>
-                    <delay>60</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units>B</units>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1024</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
