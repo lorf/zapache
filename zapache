@@ -79,7 +79,7 @@ cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
 cache="$TMPDIR/$cache_prefix.cache"
 cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
 # This assumes touch from coreutils
-touch -d "@$((`date +%s` - $cache_seconds))" "$cache_timestamp_check"
+touch -d "@$((`date +%s` - ($cache_seconds - 1)))" "$cache_timestamp_check"
 
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	curl="`which curl`"
