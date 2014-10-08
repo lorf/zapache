@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2014-10-07T07:46:27Z</date>
+    <date>2014-10-08T05:14:32Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -842,7 +842,7 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <formula>0</formula>
+                    <formula>1</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -860,7 +860,9 @@
                             <name>Apache Web Server</name>
                         </application>
                     </applications>
-                    <valuemap/>
+                    <valuemap>
+                        <name>Service state</name>
+                    </valuemap>
                 </item>
                 <item>
                     <name>Apache/Uptime</name>
@@ -1068,6 +1070,38 @@
                     <item>
                         <host>Template App Apache Web Server zapache</host>
                         <key>zapache[TotalKBytes]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>Apache CPU Load</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>1</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template App Apache Web Server zapache</host>
+                        <key>zapache[CPULoad]</key>
                     </item>
                 </graph_item>
             </graph_items>
