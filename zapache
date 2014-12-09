@@ -96,6 +96,11 @@ if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	fi
 
 	$fetch_url_cmd "$STATUS_URL" > "$cache"
+	rval=$?
+	if [ $rval != 0 ]; then
+		echo "ZBX_NOTSUPPORTED"
+		exit 1
+	fi
 fi
 
 case "$CASE_VALUE" in
