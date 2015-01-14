@@ -4,9 +4,14 @@ The script version 1.4 and template are taken from https://www.zabbix.com/wiki/t
 
 ## What's new
 
+### Version 1.6
+
+* zapache now rund on a MacOS X (Darwin) host
+
 ### Version 1.5
 
-* Zapache would cache received apache status page for 60 seconds by default. This eliminates the need to query apache for every item collected.
+* Zapache would cache received apache status page for 60 seconds by default. 
+  This eliminates the need to query apache for every item collected.
 * Added worker threads graph to a template
 * Added new items: status, ping, BusyWorkers, CPULoad
 * Added trigger for Apache status to a template

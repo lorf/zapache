@@ -9,11 +9,12 @@
 # Modified for using also as external script: Murat Koc, murat@profelis.com.tr
 # Modified for outputting usage or ZBX_NOTSUPPORTED: Alejandro Michavila
 # Modified to do cacheing for performance, dmitry.frolov@gmail.com
+# Modified to be compatible with Mac OS X: Thomas-Ganter
 #
-# Version: 1.5
+# Version: 1.6
 #
  
-zapachever="1.5"
+zapachever="1.6"
 rval=0
 value=""
 cache_seconds="60"
@@ -78,8 +79,17 @@ esac
 cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
 cache="$TMPDIR/$cache_prefix.cache"
 cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
-# This assumes touch from coreutils
-touch -d "@$((`date +%s` - ($cache_seconds - 1)))" "$cache_timestamp_check"
+
+case "`uname`" in
+'Darwin')
+	# Mac OS X has a different date / touch 
+	touch -afmt "`date -v-${cache_seconds}S +%Y%m%d%H%M.%S`" "$cache_timestamp_check"
+	;;
+*)
+	# This assumes touch from coreutils
+	touch -d "@$((`date +%s` - ($cache_seconds - 1)))" "$cache_timestamp_check"
+	;;
+esac
 
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	curl="`which curl`"
