@@ -75,7 +75,8 @@ case "$CASE_VALUE" in
 	exit 0;;
 esac
 
-cache_prefix="zapache-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
+# $UID is bash-specific
+cache_prefix="zapache-$UID-${STATUS_URL//[^a-zA-Z0-9_-]/_}"
 cache="$TMPDIR/$cache_prefix.cache"
 cache_timestamp_check="$TMPDIR/$cache_prefix.ts"
 # This assumes touch from coreutils
