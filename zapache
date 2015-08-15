@@ -150,7 +150,7 @@ case "$CASE_VALUE" in
 	value="`awk '/^IdleWorkers:/ {print $2}' < \"$cache\"`"
 	rval=$?;;
 'WaitingForConnection')
-	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "_" }; { print NF-1 }'`"
+	value="`awk '/^Scoreboard:/ {print split($2,notused,"_")-1}' < \"$cache\"
 	rval=$?;;
 'StartingUp')
 	value="`awk '/^Scoreboard:/ {print $2}' < \"$cache\" | awk 'BEGIN { FS = "S" }; { print NF-1 }'`"
