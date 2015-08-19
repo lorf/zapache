@@ -188,7 +188,15 @@ case "$CASE_VALUE" in
 esac
 
 if [ "$rval" -eq 0 -a -z "$value" ]; then
-	rval=1
+    case "$CASE_VALUE" in
+        # Theese metrics are output only if non-zero
+        'CPULoad' | 'ReqPerSec' | 'BytesPerSec' | 'BytesPerReq')
+            value=0
+            ;;
+        *)
+            rval=1
+            ;;
+    esac
 fi
  
 if [ "$rval" -ne 0 ]; then
