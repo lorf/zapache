@@ -955,7 +955,7 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>zapache[version]</key>
-                    <delay>60</delay>
+                    <delay>3600</delay>
                     <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
