@@ -87,18 +87,18 @@ touch -d "@$((`date +%s` - ($cache_seconds - 1)))" "$cache_timestamp_check"
 if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	curl="`which curl`"
 	if [ "$curl" ]; then
-		fetch_url_cmd="$curl --insecure --silent --location"
+		fetch_url() { $curl --insecure --silent --location -H "Cache-Control: no-cache" "$@"; }
 	else
 		wget="`which wget`"
 		if [ "$wget" ]; then
-			fetch_url_cmd="$wget --no-check-certificate --quiet -O -"
+			fetch_url() { $wget --no-check-certificate --quiet --header "Cache-Control: no-cache" -O - "$@"; }
 		else
 			echo "ZBX_NOTSUPPORTED"
 			exit 1
 		fi
 	fi
 
-	$fetch_url_cmd "$STATUS_URL" > "$cache"
+	fetch_url "$STATUS_URL" > "$cache"
 	rval=$?
 	if [ $rval != 0 ]; then
 		echo "ZBX_NOTSUPPORTED"
