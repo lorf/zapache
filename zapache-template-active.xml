@@ -1000,10 +1000,10 @@
     <triggers>
         <trigger>
             <expression>{Template App Apache Web Server zapache Agent Active:zapache[ping].last(0)}=0</expression>
-            <name/>
+            <name>Apache down on {HOST.NAME}</name>
             <url/>
             <status>0</status>
-            <priority>0</priority>
+            <priority>4</priority>
             <description/>
             <type>0</type>
             <dependencies/>
