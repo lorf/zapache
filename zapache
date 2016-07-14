@@ -101,7 +101,11 @@ if [ "$cache" -ot "$cache_timestamp_check" ]; then
 	fetch_url "$STATUS_URL" > "$cache"
 	rval=$?
 	if [ $rval != 0 ]; then
-		echo "ZBX_NOTSUPPORTED"
+		if [ "$CASE_VALUE" == "ping" ]; then
+			echo "0"
+		else
+			echo "ZBX_NOTSUPPORTED"
+		fi
 		exit 1
 	fi
 fi
