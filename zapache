@@ -98,7 +98,7 @@ if [ "$cache" -ot "$cache_timestamp_check" ]; then
 		fi
 	fi
 
-	fetch_url "$STATUS_URL" > "$cache"
+	fetch_url "$STATUS_URL" | sort -u > "$cache"
 	rval=$?
 	if [ $rval != 0 ]; then
 		echo "ZBX_NOTSUPPORTED"
